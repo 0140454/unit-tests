@@ -1,4 +1,5 @@
 EXEC = bin-swap bin-bubble
+RESULT = result-swap result-bubble
 .PHONY: all
 all: $(EXEC)
 
@@ -22,4 +23,4 @@ check: $(EXEC)
 	bash test-bubble.sh data-bubble.in result-bubble
 
 clean:
-	$(RM) $(EXEC) $(OBJS)
+	$(RM) $(EXEC) $(OBJS) $(RESULT)
