@@ -13,7 +13,7 @@ echo 'set logging file '$2>>_tmp.gdb
 echo ' '>>$2
 exec < $1
 
-while  (read var) 
+while  (read var)
 do
 	read var
 	list_length=$var
@@ -35,7 +35,7 @@ do
 	echo 'p "old_list"' >> _tmp.gdb
 	echo 'printf_list (*($head))' >> _tmp.gdb
 	echo 'set logging off' >> _tmp.gdb
-	echo 'p bubble_sort($head)' >> _tmp.gdb
+	echo 'p bubble_sort($head, compare_decreasing)' >> _tmp.gdb
 	echo 'set logging on' >> _tmp.gdb
 	echo 'p "new_list"' >> _tmp.gdb
 	echo 'printf_list (*($head))' >> _tmp.gdb

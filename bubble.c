@@ -1,7 +1,6 @@
-/* FIXME : introduce elegant ways to reuse */
 #include "swap.c"
 
-void bubble_sort(List **head)
+void bubble_sort(List **head, cmp_func_t cmp)
 {
     if (head == NULL || (*head == NULL))
         return;
@@ -16,15 +15,8 @@ void bubble_sort(List **head)
 
     sub_head = *head;
 
-    for (; sub_head && sub_head->next;) {
-        if (sub_head->value < sub_head->next->value) {
-            sub_head = swap(sub_head,sub_head,sub_head->next);
-            *pre_sub_head = sub_head;
-        }
-
+    for (; sub_head; sub_head = sub_head->next) {
         num_list = num_list + 1;
-        pre_sub_head = &((*pre_sub_head)->next);
-        sub_head = sub_head->next;
     }
 
     sub_for_times = num_list - 1;
@@ -33,9 +25,8 @@ void bubble_sort(List **head)
         sub_head = *head;
         sub_for_Max = num_list - (i + 1);
         pre_sub_head = head;
-        for (sub_i = 0; sub_head && sub_head->next && (sub_i < sub_for_Max);
-             sub_i++) {
-            if (sub_head->value < sub_head->next->value) {
+        for (sub_i = 0; sub_i < sub_for_Max; sub_i++) {
+            if (cmp(sub_head, sub_head->next)) {
                 sub_head = swap(sub_head,sub_head,sub_head->next);
                 *pre_sub_head = sub_head;
             }

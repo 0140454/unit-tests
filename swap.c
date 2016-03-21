@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct List_node {
-    int value;
-    struct List_node *next;
-} List_node;
-
-typedef struct List_node List;
+#include "my_list.h"
 
 List *swap(List *head, List *node_1, List *node_2)
 {

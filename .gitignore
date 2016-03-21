@@ -5,6 +5,7 @@
 *.list
 *.swp
 *.bak
+*.gch
 
 # Executables
 bin-*
